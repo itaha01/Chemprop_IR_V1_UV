@@ -1,0 +1,44 @@
+#Program to run
+program: 'train.py'
+#Sweep search method: random, grid or bayes
+method: 'random'
+
+# Project this sweep is part of
+project: 'chemprop_00'
+entity: 'nyrenw'
+
+# Metric to optimize
+metric:
+  name: 'val_srmse'
+  goal: 'minimize'
+
+# Parameters search space
+parameters:
+  warmup_epochs:
+    values: [3]
+  init_lr:
+    values: [0.0001]
+  max_lr:
+    values: [0.001]
+  final_lr:
+    values: [0.00005]
+  ensemble_size:
+    values: [1]
+  hidden_size:
+    values: [2200]
+  depth:
+    values: [6]
+  ffn_hidden_size:
+    values: [2200]
+  ffn_num_layers:
+    values: [3]
+  dropout:
+    values: [0.05]
+  num_workers:
+    value: 1
+  epochs:
+    value: 30
+  batch_size:
+    values: [64]
+  #savitzkey_golay:
+  #  values: [0]
